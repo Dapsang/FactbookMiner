@@ -11,3 +11,16 @@ C:\Users\JLDG\Documents\Visual Studio 2010\Projects\FactbookMiner\FactbookMinerT
 C:\Users\JLDG\Documents\Visual Studio 2010\Projects\FactbookMiner\FactbookMinerTester\obj\x86\Debug\FactbookMinerTester.csprojResolveAssemblyReference.cache
 C:\Users\JLDG\Documents\Visual Studio 2010\Projects\FactbookMiner\FactbookMinerTester\obj\x86\Debug\FactbookMinerTester.exe
 C:\Users\JLDG\Documents\Visual Studio 2010\Projects\FactbookMiner\FactbookMinerTester\obj\x86\Debug\FactbookMinerTester.pdb
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\obj\x86\Debug\FactbookMinerTester.exe
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\obj\x86\Debug\FactbookMinerTester.pdb
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\phantomjs.exe
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\phantomjs-license.txt
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\FactbookMinerTester.exe
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\FactbookMinerTester.pdb
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\FactbookMiner.dll
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\WebDriver.dll
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\WebDriver.Support.dll
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\FactbookMiner.pdb
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\WebDriver.xml
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\bin\Debug\WebDriver.Support.xml
+C:\Users\JLDG\Documents\GitHub\FactbookMiner\FactbookMiner\FactbookMinerTester\obj\x86\Debug\FactbookMinerTester.csprojResolveAssemblyReference.cache

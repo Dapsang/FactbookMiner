@@ -55,8 +55,14 @@ namespace FactbookMiner
             string president = PropertyManager.GetValueFromKeyAndCountry("head of government: ", "Colombia", "Government");
             PropertyManager.SetValueIntoMainDictionary("ColombiaPresident", president);
             return president;
-            
         }
+
+        public static void LoadContent()
+        {
+            PropertyManager.SetCountries();
+            PropertyManager.SetCategories();
+        }
+
 
         //public static IWebElement GetParent(this IWebElement e)
         //{

@@ -10,6 +10,7 @@ namespace FactbookMinerTester
     {
         static void Main(string[] args)
         {
+            MainMiner.LoadContent();
             string president = MainMiner.GetPresident();
             Console.WriteLine(president);
             Console.Read();
