@@ -61,6 +61,7 @@ namespace FactbookMiner
         {
             PropertyManager.SetCountries();
             PropertyManager.SetCategories();
+            PropertyManager.SetSubCategories();
         }
 
 

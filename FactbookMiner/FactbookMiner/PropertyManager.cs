@@ -22,7 +22,8 @@ namespace FactbookMiner
         {
             _driver = new PhantomJSDriver();
             _driver.Navigate().GoToUrl(FACTBOOKURL);
-            _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
+            //_driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+            //_wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 5));
         }
 
         public static IWebElement GetParent(this IWebElement e)
@@ -41,11 +42,19 @@ namespace FactbookMiner
             IWebElement mainElement = pE.FindElement(By.XPath("//span[contains(.,'" + key + "')]"));
             Console.WriteLine("-----LOG: \n-Tagname: " + mainElement.TagName + " \n-Attribute: " + mainElement.GetAttribute("class") + " \n-Text: " + mainElement.Text);
             IWebElement parent = GetParent(mainElement);
+            // TODO: webelement.isDisplayed(); Use try catch with isDisplayed, then thread.sleep(100) etc...
+            //_wait.Until((d) =>
+            //                    {
+            //                        return parent.FindElement(By.XPath(".//span[@class='category_data']"));
+            //                    });
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine("----LOG: INSIDE LOOP: \n Tagname: " + parent.TagName + " \n-Attribute: " + parent.GetAttribute("class") + " \n-Text: " + parent.Text);
+            //    Console.WriteLine("Iteration: " + i.ToString());
+            //    System.Threading.Thread.Sleep(500);
+            //}
+            System.Threading.Thread.Sleep(80);
             Console.WriteLine("-----LOG: \n-Tagname: " + parent.TagName + " \n-Attribute: " + parent.GetAttribute("class") + " \n-Text: " + parent.Text);
-            _wait.Until((d) =>
-                                {
-                                    return parent.FindElement(By.XPath(".//span[@class='category_data']"));
-                                });
             mainElement = parent.FindElement(By.XPath(".//span[@class='category_data']"));
             return mainElement.Text;
         }
@@ -81,8 +90,64 @@ namespace FactbookMiner
                 {
                     items.Remove(entry);
                 }
+                else
+                {
+                    int index = entry.IndexOf("::");
+                    string countryName = entry.Substring(index-1);
+                    string newEntry = entry.Replace(countryName, "");
+                    items.Remove(entry);
+                    items.Add(newEntry);
+                }
             }
             PropertyManager.Categories = items;
+        }
+
+        public static void SetSubCategories()
+        {
+            // TODO: Get the subcategories from the main categories. 
+            // Odd is a category and even is the data for the given category (class of the li items)
+            Dictionary<string, Dictionary<string, Dictionary<string,string>>> SubCategoriesAndData = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+            foreach (string category in PropertyManager.Categories)
+            {
+                IWebElement pE = _driver.FindElement(By.XPath("//h2[@sectiontitle='" + category + "']"));
+                pE.Click();
+                IWebElement mainElement = pE.GetParent().GetParent();
+                string oddOrEven = mainElement.GetAttribute("class").Split(' ')[0];
+                if(oddOrEven == "odd")
+                    oddOrEven = "even";
+                else if (oddOrEven == "even")
+                    oddOrEven = "odd";
+                else
+                    throw new ArgumentException("Next element is not a category");
+                IWebElement contentElement = mainElement.FindElement(By.XPath("following-sibling::li[@class='" + oddOrEven + "']"));
+                List<IWebElement> subcategories = contentElement.FindElements(By.XPath("child::div")).ToList();
+                bool isField = true;
+                string subCategoryName = string.Empty;
+                Dictionary<string, Dictionary<string, string>> subCategoryValue = new Dictionary<string, Dictionary<string, string>>();
+                // TODO: Use Dictionary<string, List<string>> ?? 
+                foreach (IWebElement element in subcategories)
+                {
+                    if (element.GetAttribute("id") == "field")
+                    {
+                        isField = true;
+                    }
+                    else
+                    {
+                        isField = false;
+                    }
+                    if (isField)
+                    {
+                        subCategoryName = element.Text;
+                    }
+                    else
+                    {
+                        
+                    }
+                    int i = 0;
+                }
+                int x = 0;
+            }
+
         }
     }
 
