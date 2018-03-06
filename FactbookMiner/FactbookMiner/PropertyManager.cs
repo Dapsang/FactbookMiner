@@ -130,18 +130,11 @@ namespace FactbookMiner
                     if (element.GetAttribute("id") == "field")
                     {
                         isField = true;
-                    }
-                    else
-                    {
-                        isField = false;
-                    }
-                    if (isField)
-                    {
                         subCategoryName = element.Text;
                     }
                     else
                     {
-                        
+                        isField = false;
                     }
                     int i = 0;
                 }
